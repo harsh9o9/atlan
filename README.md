@@ -16,6 +16,9 @@ Task: Create, design and implement a web-based application capable of running SQ
 8. Your application must have more than one query accompanied by its corresponding table of data.
 9. You can have a predefined set of queries and a predefined set of tables showing some data. You must also provide a way for us to toggle between these queries and choose any query and view the table of data accompanying it. It can be a dropdown or any other toggling mechanism.
 
+## Vercel link:
+https://atlan-inky.vercel.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
