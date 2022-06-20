@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+:root {
+  --bg-dark: #1c2130;
+  --bg-grey: #2d2f34;
+  --color-primary: #0556f3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #f3f3f3;
+  font-family: monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  background-color: var(--bg-dark);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  border: 1px solid var(--color-primary);
+  overflow: hidden;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.workspace {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 1 1 50%;
+}
+.workspace__header {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid var(--color-primary);
+}
+.header__title {
+  text-transform: lowercase;
+  font-weight: 400;
 }
 
-.App-link {
-  color: #61dafb;
+.query__selector {
+  width: 100%;
+  border: none;
+  padding: 0.6em;
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-primary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.query__selector option {
+  background-color: aqua;
+}
+.workspace__queries {
+  flex: 1 1 0;
+  position: relative;
+}
+
+.queries__textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #292929;
+  padding: 1em;
+}
+
+.img__container {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--color-primary);
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.img__container:hover {
+  box-shadow: 0px 0px 1px 1px #f3f3f3;
+  filter: brightness(1.5);
+}
+
+.img__container:active {
+  box-shadow: none;
+  filter: brightness(1);
+}
+
+.workspace__queries img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  transform: translateX(2px);
+}
+
+.output {
+  flex: 1 1 50%;
+  border-left: 1px solid var(--color-primary);
+  overflow: scroll;
+}
+.output__header {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid var(--color-primary);
+}
+.output__result {
+  padding: 2em;
+  overflow: scroll;
+}
+
+td,
+th,
+table {
+  border: 1px solid white;
+  border-collapse: collapse;
+  padding: 0.5em;
+}
+th {
+  padding: 0.8em;
+  background-color: var(--bg-grey);
 }

@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Output from "./components/Output";
+import Workspace from "./components/Workspace";
+import {
+  data as userData,
+  titles,
+  marketManagers,
+  nullPostalData,
+} from "./data";
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+  function changeData(selectValue) {
+    if (selectValue === "marketingManagers") {
+      setData(marketManagers);
+    } else if (selectValue === "postalNULL") {
+      setData(nullPostalData);
+    } else if (selectValue === "selectAll") {
+      setData(userData);
+    } else if (selectValue === "") {
+      setData([]);
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Workspace changeData={changeData} />
+      <Output data={data} titles={titles} />
     </div>
   );
-}
+};
 
 export default App;
